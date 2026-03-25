@@ -28,7 +28,7 @@ def preprc_func(img):
     return img
 
 #-----------------------------------------------------------------------------
-# Generación de los objetos de entranimiento y test y retorno de estos.
+# Generación de los objetos de entrenamiento y test y retorno de estos.
 #-----------------------------------------------------------------------------
 def load_data(i_directory_train, i_directory_test):
 
