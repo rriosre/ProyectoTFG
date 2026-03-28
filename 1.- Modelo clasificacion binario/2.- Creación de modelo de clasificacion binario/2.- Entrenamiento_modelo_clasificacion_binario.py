@@ -34,6 +34,7 @@ def load_data(i_directory_train, i_directory_test):
 
     datagen = tf.keras.preprocessing.image.ImageDataGenerator( preprocessing_function = preprc_func )
 
+
     train_generator = datagen.flow_from_directory(
             i_directory_train,
             target_size=(512, 512),
