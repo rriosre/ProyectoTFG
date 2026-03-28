@@ -164,20 +164,20 @@ def train_model(i_model, i_train_images, i_test_images, i_img_tumor, i_img_no_tu
     validation_steps = i_test_images.n  // batch_size
 
     # Aplicar balanceo
-    l_img_tumor     = i_img_tumor    # Imagenes de entrenamiento actuales
-    l_img_no_tumor  = i_img_no_tumor # Imagenes de entrenamiento actuales
-    l_total         = l_img_tumor + l_img_no_tumor
-
-    l_peso_tumor       = l_total / ( 2 * l_img_tumor )
-    l_peso_no_tumor    = l_total / ( 2 * l_img_no_tumor )
-    class_weights_dict = {0:l_peso_no_tumor,1:l_peso_tumor }
+##    l_img_tumor     = i_img_tumor    # Imagenes de entrenamiento actuales
+##    l_img_no_tumor  = i_img_no_tumor # Imagenes de entrenamiento actuales
+##    l_total         = l_img_tumor + l_img_no_tumor
+##
+##    l_peso_tumor       = l_total / ( 2 * l_img_tumor )
+##    l_peso_no_tumor    = l_total / ( 2 * l_img_no_tumor )
+##    class_weights_dict = {0:l_peso_no_tumor,1:l_peso_tumor }
 
     # Ejecutamos el entrenamiento de los datos y comparación con los de test.
     history = i_model.fit(i_train_images,
                           steps_per_epoch  = steps_per_epoch,
                           epochs           = 20,
                           callbacks        =[reduce_lr, log_tensorboard, early_stop, metrics],
-                          class_weight     = class_weights_dict, # Utilizar balanceo
+#                          class_weight     = class_weights_dict, # Utilizar balanceo
                           validation_data  = i_test_images,
                           validation_steps = validation_steps)
 
